@@ -1,49 +1,37 @@
 # 违停查处应用 - GitHub Pages 部署指南
 
-## 已完成配置
+## 当前配置状态
 
-✅ **vite.config.ts** 已配置 `base: './'`
-✅ **App.tsx** 根路径 `/` 指向 TailPhotoPage
-✅ **路由系统** 使用 React Router DOM,打开即显示首页
+✅ **vite.config.ts** 已配置 `base: '/shangyuweitingapp/'`
+✅ **App.tsx** 使用 HashRouter,适配GitHub Pages
+✅ **TypeScript错误** 已修复所有未使用变量
+✅ **构建成功** dist目录已生成
 
 ## 部署步骤
 
-### 1. 构建项目
+### 方法一:直接推送dist目录(最简单)
+
 ```bash
+# 1. 构建项目
 npm run build
-```
 
-### 2. 推送到GitHub
-
-```bash
-# 初始化git仓库(如果还没有)
+# 2. 初始化git仓库(如果还没有)
 git init
 
-# 添加所有文件
+# 3. 添加所有文件
 git add .
 
-# 提交
+# 4. 提交
 git commit -m "feat: 违停查处应用 - 准备部署到GitHub Pages"
 
-# 添加远程仓库(替换为你的GitHub仓库地址)
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
+# 5. 添加远程仓库
+git remote add origin https://github.com/itmelody/shangyuweitingapp.git
 
-# 推送到main分支
+# 6. 推送到main分支
 git push -u origin main
 ```
 
-### 3. 启用GitHub Pages
-
-1. 进入你的GitHub仓库
-2. 点击 **Settings** (设置)
-3. 左侧菜单找到 **Pages**
-4. 在 **Source** 下选择:
-   - Branch: `main`
-   - Folder: `/docs` (需要先创建docs文件夹并将dist内容复制进去)
-   
-   或者使用 GitHub Actions 自动部署
-
-### 4. 使用GitHub Actions自动部署(推荐)
+### 方法二:使用GitHub Actions自动部署(推荐)
 
 在项目根目录创建 `.github/workflows/deploy.yml`:
 
@@ -92,26 +80,70 @@ jobs:
         uses: actions/deploy-pages@v2
 ```
 
-### 5. 访问应用
+然后推送代码,GitHub Actions会自动构建和部署。
+
+### 方法三:手动启用GitHub Pages
+
+1. 推送代码到GitHub:
+```bash
+git push origin main
+```
+
+2. 进入你的GitHub仓库: https://github.com/itmelody/shangyuweitingapp
+
+3. 点击 **Settings** (设置)
+
+4. 左侧菜单找到 **Pages**
+
+5. 在 **Build and deployment** 下设置:
+   - **Source**: Deploy from a branch
+   - **Branch**: `main`
+   - **Folder**: `/ (root)`
+
+6. 点击 **Save**
+
+7. 等待几分钟,访问: https://itmelody.github.io/shangyuweitingapp/
+
+## 访问地址
 
 部署成功后,访问:
 ```
-https://YOUR_USERNAME.github.io/YOUR_REPO/
+https://itmelody.github.io/shangyuweitingapp/
 ```
+
+## 配置说明
+
+### vite.config.ts
+```typescript
+base: '/shangyuweitingapp/',  // 必须与GitHub仓库名称一致
+```
+
+### App.tsx
+```typescript
+import { HashRouter, Routes, Route } from 'react-router-dom'
+// 使用 HashRouter 而不是 BrowserRouter
+```
+
+## 常见问题
+
+### Q: 为什么打开是空白页?
+A: 确保 `vite.config.ts` 中的 `base` 路径与仓库名称一致。
+
+### Q: 如何更新部署?
+A: 修改代码后,重新运行 `npm run build`,然后推送到GitHub:
+```bash
+git add .
+git commit -m "更新内容"
+git push
+```
+
+### Q: 页面跳转有问题?
+A: 我们使用 HashRouter,URL会显示为 `/#/violation-form` 这种格式,这是正常的。
 
 ## 特性说明
 
-- ✅ 打开index.html自动显示TailPhotoPage(违停查处首页)
-- ✅ 所有页面跳转通过React Router管理
+- ✅ 打开即显示TailPhotoPage(违停查处首页)
+- ✅ 所有页面跳转正常工作
 - ✅ 支持SPA单页应用路由
-- ✅ 已配置相对路径,适配GitHub Pages
-
-## 注意事项
-
-⚠️ GitHub Pages默认使用Hash路由,当前配置使用Browser路由,可能需要额外配置
-
-如果需要支持Hash路由,修改App.tsx:
-```typescript
-import { HashRouter, Routes, Route } from 'react-router-dom'
-// 将 BrowserRouter 改为 HashRouter
-```
+- ✅ 已配置正确的base路径,适配GitHub Pages
+- ✅ 使用HashRouter,兼容静态托管

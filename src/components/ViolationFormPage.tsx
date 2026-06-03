@@ -13,14 +13,14 @@ const ViolationFormPage = () => {
   // 表单状态
   const [tailPhotoUrl, setTailPhotoUrl] = useState<string>('')
   const [headPhotoUrl, setHeadPhotoUrl] = useState<string>('')
-  const [plateNumber, setPlateNumber] = useState('浙D7G12Z')
-  const [lastViolationTime, setLastViolationTime] = useState('2026-03-02 16:13:56')
-  const [vehicleType, setVehicleType] = useState('小型汽车')
-  const [plateColor, setPlateColor] = useState('蓝色')
-  const [violationTime, setViolationTime] = useState('2026-06-02 16:23:01')
-  const [address, setAddress] = useState('绍兴市上虞区邱桥路与溪沁街交叉路口往西南约60米')
-  const [handler1, setHandler1] = useState('张三')
-  const [handler2, setHandler2] = useState('李四')
+  const [plateNumber] = useState('浙D7G12Z')
+  const [lastViolationTime] = useState('2026-03-02 16:13:56')
+  const [vehicleType] = useState('小型汽车')
+  const [plateColor] = useState('蓝色')
+  const [violationTime] = useState('2026-06-02 16:23:01')
+  const [address] = useState('绍兴市上虞区邱桥路与溪沁街交叉路口往西南约60米')
+  const [handler1] = useState('张三')
+  const [handler2] = useState('李四')
   const [violationDesc, setViolationDesc] = useState('')
 
   // 处理车尾照上传
@@ -61,12 +61,12 @@ const ViolationFormPage = () => {
     setHeadPhotoUrl('')
   }
 
-  // 语音输入功能(模拟)
-  const handleVoiceInput = (field: string) => {
-    console.log('语音输入:', field)
-    // 这里可以集成语音识别API
-    alert('语音输入功能开发中...')
-  }
+  // 语音输入功能(模拟)(保留供后续使用)
+  // const handleVoiceInput = (field: string) => {
+  //   console.log('语音输入:', field)
+  //   // 这里可以集成语音识别API
+  //   alert('语音输入功能开发中...')
+  // }
 
   // 定位功能
   const handleLocation = () => {
@@ -86,10 +86,10 @@ const ViolationFormPage = () => {
     }
   }
 
-  // 车辆类型选项
-  const vehicleTypes = ['小型汽车', '大型汽车', '教练汽车', '小型新能源汽车', '大型新能源汽车']
-  // 号牌颜色选项
-  const plateColors = ['蓝色', '黄色', '白色', '黑色', '绿色']
+  // 车辆类型选项(保留供后续使用)
+  // const vehicleTypes = ['小型汽车', '大型汽车', '教练汽车', '小型新能源汽车', '大型新能源汽车']
+  // 号牌颜色选项(保留供后续使用)
+  // const plateColors = ['蓝色', '黄色', '白色', '黑色', '绿色']
 
   // 柔性执法
   const handleFlexibleEnforcement = () => {
