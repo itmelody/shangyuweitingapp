@@ -1,0 +1,243 @@
+/* 车尾照拍摄页面样式 */
+.tail-photo-page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+/* 顶部导航栏 */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f0f0f0;
+  min-height: 56px;
+}
+
+.back-btn, .home-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: #333333;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.back-btn:active, .home-btn:active {
+  background-color: #f5f5f5;
+}
+
+.page-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+/* 主要内容区 */
+.page-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 汽车图示区域 */
+.car-photo-area {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+  margin-top: 100px;
+}
+
+.car-photo-frame {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 四角L形标记 */
+.corner-mark {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+}
+
+.corner-top-left {
+  top: 12px;
+  left: 12px;
+  border-top: 3px solid #2196F3;
+  border-left: 3px solid #2196F3;
+  border-top-left-radius: 8px;
+}
+
+.corner-top-right {
+  top: 12px;
+  right: 12px;
+  border-top: 3px solid #2196F3;
+  border-right: 3px solid #2196F3;
+  border-top-right-radius: 8px;
+}
+
+.corner-bottom-left {
+  bottom: 12px;
+  left: 12px;
+  border-bottom: 3px solid #2196F3;
+  border-left: 3px solid #2196F3;
+  border-bottom-left-radius: 8px;
+}
+
+.corner-bottom-right {
+  bottom: 12px;
+  right: 12px;
+  border-bottom: 3px solid #2196F3;
+  border-right: 3px solid #2196F3;
+  border-bottom-right-radius: 8px;
+}
+
+.car-illustration {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.car-shadow {
+  width: 240px;
+  height: 40px;
+  background: radial-gradient(ellipse, rgba(33, 150, 243, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  margin-top: -20px;
+}
+
+/* 文字说明区域 */
+.instruction-area {
+  width: 100%;
+  padding: 0 8px;
+}
+
+.instruction-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.instruction-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.instruction-list li {
+  font-size: 15px;
+  color: #666666;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  padding-left: 16px;
+  position: relative;
+}
+
+.instruction-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #666666;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* 底部操作区 */
+.page-footer {
+  padding: 20px;
+  padding-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: #ffffff;
+}
+
+.photo-btn {
+  width: 430px;
+  height: 52px;
+  margin-left: 12px;
+  margin-right: 12px;
+  background-color: #2196F3;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  position: relative;
+}
+
+.photo-btn:active {
+  background-color: #1976D2;
+}
+
+.photo-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #FF5722;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+}
+
+.records-link {
+  width: 100%;
+  height: 44px;
+  background: none;
+  border: none;
+  color: #2196F3;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.records-link:active {
+  background-color: #f5f9ff;
+}
+
+/* 底部指示条 */
+.home-indicator {
+  width: 134px;
+  height: 5px;
+  background-color: #000000;
+  border-radius: 100px;
+  margin: 8px auto 0;
+  opacity: 0.2;
+}
