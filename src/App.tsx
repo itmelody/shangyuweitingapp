@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import TailPhotoPage from './components/TailPhotoPage'
 import ViolationFormPage from './components/ViolationFormPage'
 import NoticePage from './components/NoticePage'
@@ -8,7 +8,7 @@ import ViolationDetailPage from './components/ViolationDetailPage'
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="app-container">
         <Routes>
           <Route path="/" element={<TailPhotoPage />} />
@@ -19,7 +19,7 @@ function App() {
           <Route path="/violation-detail" element={<ViolationDetailPage />} />
         </Routes>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
