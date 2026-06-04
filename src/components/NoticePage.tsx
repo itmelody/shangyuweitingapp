@@ -3,6 +3,7 @@ import './NoticePage.css'
 
 const NoticePage = () => {
   const navigate = useNavigate()
+  const BASE_URL = import.meta.env.BASE_URL
 
   // 告知单数据
   const noticeData = {
@@ -93,14 +94,14 @@ const NoticePage = () => {
           <div className="qr-section">
             <div className="qr-item">
               <div className="qr-code">
-                <img src="/alipay-qr.png" alt="支付宝二维码" className="qr-image" />
+                <img src={`${BASE_URL}alipay-qr.png`} alt="支付宝二维码" className="qr-image" />
               </div>
               <p className="qr-label">支付宝二维码</p>
               <p className="officer-info">执法人员：33063020；33063032</p>
             </div>
             <div className="qr-item">
               <div className="qr-code">
-                <img src="/zheliban-qr.png" alt="浙里办二维码" className="qr-image" />
+                <img src={`${BASE_URL}zheliban-qr.png`} alt="浙里办二维码" className="qr-image" />
               </div>
               <p className="qr-label">浙里办二维码</p>
             </div>

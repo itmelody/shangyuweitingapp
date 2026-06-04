@@ -1,4 +1,6 @@
 // 违停记录数据
+const BASE_URL = import.meta.env.BASE_URL
+
 export interface ViolationRecord {
   id: number
   plateNumber: string
@@ -26,12 +28,12 @@ export const violationRecords: ViolationRecord[] = [
     handler1: '张三',
     handler2: '李四',
     violationDesc: '机动车违反规定停放,影响行人通行',
-    photoUrl: '/record-car-1.png',
+    photoUrl: `${BASE_URL}record-car-1.png`,
     photos: [
-      '/record-car-1.png',
-      '/record-car-2.png',
-      '/record-car-3.png',
-      '/record-car-4.png'
+      `${BASE_URL}record-car-1.png`,
+      `${BASE_URL}record-car-2.png`,
+      `${BASE_URL}record-car-3.png`,
+      `${BASE_URL}record-car-4.png`
     ],
     processType: '柔性执法',
     processStatus: '待审核'
@@ -46,12 +48,12 @@ export const violationRecords: ViolationRecord[] = [
     handler1: '王五',
     handler2: '赵六',
     violationDesc: '机动车违反规定停放,占用消防通道',
-    photoUrl: '/record-car-2.png',
+    photoUrl: `${BASE_URL}record-car-2.png`,
     photos: [
-      '/record-car-1.png',
-      '/record-car-2.png',
-      '/record-car-3.png',
-      '/record-car-4.png'
+      `${BASE_URL}record-car-1.png`,
+      `${BASE_URL}record-car-2.png`,
+      `${BASE_URL}record-car-3.png`,
+      `${BASE_URL}record-car-4.png`
     ],
     processType: '处罚',
     processStatus: '已审核'
@@ -66,12 +68,12 @@ export const violationRecords: ViolationRecord[] = [
     handler1: '孙七',
     handler2: '周八',
     violationDesc: '机动车违反规定停放,影响交通通行',
-    photoUrl: '/record-car-3.png',
+    photoUrl: `${BASE_URL}record-car-3.png`,
     photos: [
-      '/record-car-1.png',
-      '/record-car-2.png',
-      '/record-car-3.png',
-      '/record-car-4.png'
+      `${BASE_URL}record-car-1.png`,
+      `${BASE_URL}record-car-2.png`,
+      `${BASE_URL}record-car-3.png`,
+      `${BASE_URL}record-car-4.png`
     ],
     processType: '柔性执法',
     processStatus: '已审核'
@@ -86,12 +88,12 @@ export const violationRecords: ViolationRecord[] = [
     handler1: '吴九',
     handler2: '郑十',
     violationDesc: '机动车违反规定停放,占用盲道',
-    photoUrl: '/record-car-4.png',
+    photoUrl: `${BASE_URL}record-car-4.png`,
     photos: [
-      '/record-car-1.png',
-      '/record-car-2.png',
-      '/record-car-3.png',
-      '/record-car-4.png'
+      `${BASE_URL}record-car-1.png`,
+      `${BASE_URL}record-car-2.png`,
+      `${BASE_URL}record-car-3.png`,
+      `${BASE_URL}record-car-4.png`
     ],
     processType: '处罚',
     processStatus: '待审核'

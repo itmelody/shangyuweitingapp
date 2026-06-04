@@ -4,6 +4,7 @@ import './InfoCollectionPage.css'
 
 const InfoCollectionPage = () => {
   const navigate = useNavigate()
+  const BASE_URL = import.meta.env.BASE_URL
   const [smsNotification, setSmsNotification] = useState(true)
   const [collectedPhotos, setCollectedPhotos] = useState<string[]>([])
   const photoInputRef = useRef<HTMLInputElement>(null)
@@ -66,7 +67,7 @@ const InfoCollectionPage = () => {
           <div className="photo-grid">
             {/* 示例图片1 */}
             <div className="photo-item">
-              <img src="/car-photo1.png" alt="示例图片1" className="photo-preview" />
+              <img src={`${BASE_URL}car-photo1.png`} alt="示例图片1" className="photo-preview" />
               <button className="delete-photo-btn clickable" onClick={() => deletePhoto(-1)}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M3 6H5H21" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -77,7 +78,7 @@ const InfoCollectionPage = () => {
 
             {/* 示例图片2 */}
             <div className="photo-item">
-              <img src="/car-photo2.png" alt="示例图片2" className="photo-preview" />
+              <img src={`${BASE_URL}car-photo2.png`} alt="示例图片2" className="photo-preview" />
               <button className="delete-photo-btn clickable" onClick={() => deletePhoto(-1)}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M3 6H5H21" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
