@@ -1,9 +1,11 @@
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './NoticePage.css'
 
 const NoticePage = () => {
   const navigate = useNavigate()
   const BASE_URL = import.meta.env.BASE_URL
+  const [showModal, setShowModal] = useState(false)
 
   // 告知单数据
   const noticeData = {
@@ -18,7 +20,12 @@ const NoticePage = () => {
 
   // 打印功能
   const handlePrint = (type: string) => {
-    alert(`${type}打印功能开发中...`)
+    setShowModal(true)
+  }
+
+  // 关闭弹窗
+  const handleCloseModal = () => {
+    setShowModal(false)
   }
 
   // 下一步
@@ -153,6 +160,25 @@ const NoticePage = () => {
         {/* 底部指示条 */}
         <div className="home-indicator"></div>
       </footer>
+
+      {/* 自定义弹窗 */}
+      {showModal && (
+        <div className="notice-modal-overlay" onClick={handleCloseModal}>
+          <div className="notice-modal-content" onClick={(e) => e.stopPropagation()}>
+            <div className="notice-modal-icon">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="20" fill="#FF5252"/>
+                <path d="M24 16V26" stroke="white" strokeWidth="3" strokeLinecap="round"/>
+                <circle cx="24" cy="32" r="2" fill="white"/>
+              </svg>
+            </div>
+            <p className="notice-modal-message">打印失败，请先连接至蓝牙打印机</p>
+            <button className="notice-modal-btn clickable" onClick={handleCloseModal}>
+              我知道了
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
