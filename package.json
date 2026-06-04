@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "postbuild": "touch dist/.nojekyll && cp dist/index.html dist/404.html",
     "preview": "vite preview"
   },
   "repository": {
