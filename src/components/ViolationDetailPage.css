@@ -56,7 +56,7 @@
   background-color: #ffffff;
   border-radius: 12px;
   padding: 16px;
-  margin-bottom: 16px;
+  margin: 0 0 16px 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
@@ -127,7 +127,9 @@
 .photos-section {
   background-color: #ffffff;
   border-radius: 12px;
-  padding: 16px;
+  padding: 16px !important;
+  margin: 0 !important;
+  width: 100% !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
@@ -135,20 +137,28 @@
   font-size: 16px;
   font-weight: 600;
   color: #333;
-  margin: 0 0 16px 0;
+  margin: 0 0 16px 0 !important;
+  padding: 0 !important;
 }
 
 .photos-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 12px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
 }
 
 .photo-item {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 4 / 3 !important;
   border-radius: 8px;
   overflow: hidden;
   background-color: #f0f0f0;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 .photo-item img {
