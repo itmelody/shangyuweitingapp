@@ -6,12 +6,14 @@ const ViolationFormPage = () => {
   const navigate = useNavigate()
   const tailPhotoInputRef = useRef<HTMLInputElement>(null)
   const headPhotoInputRef = useRef<HTMLInputElement>(null)
+  const BASE_URL = import.meta.env.BASE_URL
   
   // 弹窗状态
   const [showConfirmModal, setShowConfirmModal] = useState(false)
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
   
   // 表单状态
-  const [tailPhotoUrl, setTailPhotoUrl] = useState<string>('')
+  const [tailPhotoUrl, setTailPhotoUrl] = useState(`${BASE_URL}tail-car-photo.png`)
   const [headPhotoUrl, setHeadPhotoUrl] = useState<string>('')
   const [plateNumber] = useState('浙D7G12Z')
   const [lastViolationTime] = useState('2026-03-02 16:13:56')
@@ -32,6 +34,11 @@ const ViolationFormPage = () => {
     }
   }
 
+  // 触发车尾照选择
+  const triggerTailPhotoUpload = () => {
+    tailPhotoInputRef.current?.click()
+  }
+
   // 处理车头照上传
   const handleHeadPhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
@@ -41,24 +48,30 @@ const ViolationFormPage = () => {
     }
   }
 
-  // 触发车尾照选择
-  const triggerTailPhotoUpload = () => {
-    tailPhotoInputRef.current?.click()
-  }
-
   // 触发车头照选择
   const triggerHeadPhotoUpload = () => {
     headPhotoInputRef.current?.click()
   }
 
-  // 删除车尾照
-  const deleteTailPhoto = () => {
-    setTailPhotoUrl('')
-  }
-
   // 删除车头照
   const deleteHeadPhoto = () => {
     setHeadPhotoUrl('')
+  }
+
+  // 删除车尾照
+  const deleteTailPhoto = () => {
+    setShowDeleteModal(true)
+  }
+
+  // 确认删除车尾照
+  const confirmDeleteTailPhoto = () => {
+    setShowDeleteModal(false)
+    setTailPhotoUrl('') // 清空车尾照
+  }
+
+  // 取消删除车尾照
+  const cancelDeleteTailPhoto = () => {
+    setShowDeleteModal(false)
   }
 
   // 语音输入功能(模拟)(保留供后续使用)
@@ -375,6 +388,25 @@ const ViolationFormPage = () => {
                 取消
               </button>
               <button className="modal-btn modal-btn-confirm clickable" onClick={confirmFlexibleEnforcement}>
+                确认
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 删除照片确认弹窗 */}
+      {showDeleteModal && (
+        <div className="modal-overlay" onClick={cancelDeleteTailPhoto}>
+          <div className="confirm-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-content">
+              <p className="modal-text">请确认是否删除照片？</p>
+            </div>
+            <div className="modal-footer">
+              <button className="modal-btn modal-btn-cancel clickable" onClick={cancelDeleteTailPhoto}>
+                取消
+              </button>
+              <button className="modal-btn modal-btn-confirm clickable" onClick={confirmDeleteTailPhoto}>
                 确认
               </button>
             </div>

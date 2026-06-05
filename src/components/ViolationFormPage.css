@@ -65,20 +65,20 @@
   flex: 1;
   background-color: #ffffff;
   border-radius: 12px;
-  padding: 16px;
+  padding: 0;
   height: 115px;
   width: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  overflow: hidden;
 }
 
 .car-photo {
   width: 100%;
-  max-height: 200px;
-  object-fit: contain;
-  border-radius: 8px;
+  height: 100%;
+  object-fit: cover;
 }
 
 .delete-photo-btn {
